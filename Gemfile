@@ -4,7 +4,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
+ruby '2.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
@@ -14,6 +14,10 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Use bootstrap's built-in styles, with SCSS
+gem 'bootstrap-sass', '~> 3.3'
+# Bootstrap JavaScript depends on jQuery. If you're using Rails 5.1+, add the jquery-rails gem to your Gemfile:
+gem 'jquery-rails', '~> 4.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -33,19 +37,49 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem "haml-rails", "~> 1.0"
+
+gem 'devise'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
+
+group :development, :test do
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'ffaker'
+  #other option comes with Rails -- gem 'byebug', platform: :mri
+end 
+
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+    # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  gem 'web-console'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen'
+  ## 
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'listen'
+  gem 'letter_opener'
 end
+
+group :test do
+  gem 'capybara-email'
+  gem 'database_cleaner'
+  gem 'faker' #some older RubySnacks reference 'ffaker'
+  gem 'capybara-webkit'
+  gem 'simple_bdd'
+  gem 'shoulda-matchers' 
+end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

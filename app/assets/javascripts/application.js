@@ -9,7 +9,12 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+// bootstrap-sprockets and bootstrap should not both be included in application.js.
+// bootstrap-sprockets provides individual Bootstrap Javascript files (alert.js or dropdown.js, 
+// for example), while bootstrap provides a concatenated file containing all Bootstrap Javascripts.
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
+//= require bootstrap-sprockets
 //= require_tree .
