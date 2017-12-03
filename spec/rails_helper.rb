@@ -66,6 +66,10 @@ ENV['RAILS_ENV'] ||= 'test'
     end
     
     config.include SimpleBdd, type: :feature
+
+    RSpec.configure do |config|
+      config.include Devise::Test::ControllerHelpers, type: :controller
+    end
     
     Shoulda::Matchers.configure do |config|
       config.integrate do |with|
