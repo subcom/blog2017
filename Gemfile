@@ -4,16 +4,17 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-ruby '2.4.1'
+ruby '>= 2.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails','~> 5.1'
+gem 'rails','>= 5.1'
+
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma' #, '~> 3.7'
 # Use SCSS for stylesheets
-gem 'sass-rails' #, '~> 5.0'
+gem 'sassc-rails' #, '~> 5.0'
 # Use bootstrap's built-in styles, with SCSS
 gem 'bootstrap-sass' #, '~> 3.3'
 # Bootstrap JavaScript depends on jQuery. If you're using Rails 5.1+, add the jquery-rails gem to your Gemfile:
@@ -57,7 +58,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  gem 'ffaker'
+  gem 'faker'
   #other option comes with Rails -- gem 'byebug', platform: :mri
 end 
 
@@ -77,10 +78,10 @@ end
 group :test do
   gem 'capybara-email'
   gem 'database_cleaner'
-  gem 'faker' #some older RubySnacks reference 'ffaker'
   gem 'capybara-webkit'
   gem 'simple_bdd'
-  gem 'shoulda-matchers' 
+  gem 'shoulda-matchers'
+
 end
 
 

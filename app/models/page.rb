@@ -1,6 +1,8 @@
 class Page < ApplicationRecord
   extend FriendlyId
   
+  attr_accessible :title
+
   friendly_id :title, use: :slugged
 
   validates_length_of :title, maximum: 100, message: "Title must be less than 100 characters."
