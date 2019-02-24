@@ -23,4 +23,6 @@
           =link_to "About", "#"
         %li
           =link_to "Contact", "#"
+        -unless current_user.nil?
+          =link_to "Dashboard", "#"
       = render "layouts/includes/login" 
